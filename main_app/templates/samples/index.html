@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Blood Ccount Sample Report</h1>
+{% for sample in samples %}
+
+<div>
+  <div class="card-container">
+    <a href="{% url 'detail' sample.id %}">Patient ID: Patient </a><br />
+    White Blood Cell (WBC): {{ sample.WBC }} <br />
+    Red Blood Cell (RBC): {{ sample.RBC }} <br />
+    Hematocrit (HCT): {{ sample.HCT }} <br />
+    Mean Cell Volume (MCV): {{ sample.MCV }} <br />
+    Mean Cell Hemogolobin (MCH): {{ sample.MCH }}<br /><br /><br />
+  </div>
+</div>
+{%endfor%} {% endblock%}

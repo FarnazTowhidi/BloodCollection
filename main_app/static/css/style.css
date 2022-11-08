@@ -1,0 +1,47 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: white;
+  height: 100vh;
+}
+
+nav,
+footer {
+  background-color: #2264a3;
+  color: white;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+.navItem {
+  display: inline-block;
+  padding-right: 30px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+}
+
+.card-container {
+  font-size: 12px;
+}
+
+.NIHLego {
+  padding: 20px 0 20px 5px;
+  width: 350px;
+}
+
+.page-footer {
+  font-size: 11px;
+  background-color: #dbdad3;
+  color: #4f7dc8;
+  text-align: center;
+}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Sampling list</h1>
+
+<div>
+  <div class="card-container">
+    White Blood Cell (WBC): {{ sample.WBC }} <br />
+    Red Blood Cell (RBC): {{ sample.RBC }} <br />
+    Hematocrit (HCT): {{ sample.HCT }} <br />
+    Mean Cell Volume (MCV): {{ sample.MCV }} <br />
+    Mean Cell Hemogolobin (MCH): {{ sample.MCH }}<br /><br /><br />
+  </div>
+</div>
+{% endblock%}

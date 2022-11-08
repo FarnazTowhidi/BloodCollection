@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>National Institute of Health Lab</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+  </head>
+  <body>
+    <header>
+      <img class="NIHLego" src="{% static 'images/nih-logo-color.png' %}" />
+      <nav>
+        <div>
+          <ul>
+            <li class="navItem">
+              <a class="navLink" href="/about">About NIH</a>
+            </li>
+            <li class="navItem">
+              <a class="navLink" href="/samples/">Sample list</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container">{% block content %} {% endblock %}</main>
+    <footer class="page-footer">
+      <div>
+        National Institutes of Health, 9000 Rockville Pike, Bethesda, Maryland
+        20892<br />
+        U.S. Department of Health and Human Services
+      </div>
+    </footer>
+  </body>
+</html>
