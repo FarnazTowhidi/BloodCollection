@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+<h1>List of Patients</h1>
+{% for patient in patients %}
+
+<div>
+  <div class="list-container">
+    <b>Patient Name:</b>
+    <a href="{% url 'details' patient.id %}">{{ patient.name }}</a> <br />
+    <b>Age:</b> {{ patient.age }} <br />
+    <b>SEX:</b> {{ patient.sex }} <br />
+  </div>
+</div>
+{%endfor%} {% endblock%}

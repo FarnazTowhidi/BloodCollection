@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Patient Details</h1>
+
+<div>
+  <div class="list-container">
+    Patient Name: {{ patient.name }} <br />
+    Age: {{ patient.age }} <br />
+    sex: {{ patient.sex }} <br />
+    Family Doctor: {{ patient.family_doctor}} <br />
+  </div>
+  <div class="button_container">
+    <div class="submitButton">
+      <a href="{% url 'patient_update' patient.id%}">Edit</a>
+    </div>
+    <div class="submitButton">
+      <a href="{% url 'patient_delete' patient.id%}">Delete</a>
+    </div>
+  </div>
+</div>
+<div>
+  <form action="{% url 'add_bloodSample' patient.id %}" method="post">
+    {% csrf_token %} {% patientBloodSample_form %}
+    <input type="submit" class="btn" value="Add Blood Samples" />
+  </form>
+</div>
+{% endblock%}

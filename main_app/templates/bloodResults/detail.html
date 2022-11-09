@@ -9,5 +9,9 @@
     Mean Cell Volume (MCV): {{ sample.MCV }} <br />
     Mean Cell Hemogolobin (MCH): {{ sample.MCH }}<br /><br /><br />
   </div>
+  <div>
+    <a href="{% url 'sample_update' sample.id%}">Edit</a>
+    <a href="{% url 'sample_delete' sample.id%}"></a>>Delete</a>
+  </div>
 </div>
 {% endblock%}
