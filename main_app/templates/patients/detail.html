@@ -36,8 +36,8 @@
     <tbody>
       {% for bloodSample in patient.BloodSamples_set.all %}
       <tr>
-        <td>{{BloodSamples.collectionDate}}</td>
-        <td>{{BloodSamples.orderingPhysician}}</td>
+        <td>{{bloodSample.collectionDate}}</td>
+        <td>{{bloodSample.orderingPhysician}}</td>
       </tr>
       {% endfor %}
     </tbody>
