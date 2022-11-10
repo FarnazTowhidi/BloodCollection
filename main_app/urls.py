@@ -8,7 +8,7 @@ urlpatterns = [
     path('patients/<int:patient_id>/', views.patients_details, name='details'),  
     path('patients/<int:pk>/update/', views.patientUpdate.as_view(), name='patient_update'),
     path('patients/<int:pk>/delete/', views.patientsDelete.as_view(), name='patient_delete'),
-    path('patients/<int:patient_id>/bloodSample_add/', views.bloodSample_add, name='bloodSample_add')
-
+    path('patients/<int:patient_id>/bloodSample_add/', views.bloodSample_add, name='bloodSample_add'),
+    path('patients/<int:patient_id>/medication/<int:medication_id>/', views.patient_medication, name='patient_medication'),
     
 ]

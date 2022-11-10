@@ -80,7 +80,7 @@
             </span>
           </div>
           <div class="card-action">
-            <form action="" method="post">
+            <form action="{% url 'patient_medication' patient.id medication.id %}" method="post">
               {% csrf_token %}
               <button type="submit" class="submitButton">Add</button>
             </form>
@@ -88,7 +88,7 @@
         </div>
       {% endfor %}
     {% else %}
-      <h5>{{cat.name}} Already Has All Toys Available</h5>
+      <h5>{{cat.name}} All medications added</h5>
     {% endif %}
   </div>
 </div>
