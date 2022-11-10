@@ -1,12 +1,12 @@
 from django.forms import ModelForm
-from .models import Patient, Patient_BloodSample
+from .models import Patient, BloodSamples
 
 class PatientForm(ModelForm):
   class Meta:
     model = Patient
-    fields = ['name', 'age', 'sex', 'family_doctor','HealthCare_number']
+    fields = ['name', 'age', 'sex', 'familyDoctor','HealthCareNumber']
 
 class PatientBloodSampleForm(ModelForm):
     class Meta:
-        model = Patient_BloodSample
-        fields = ['collection_date', 'ordering_Physician']
+        model = BloodSamples
+        fields = ['collectionDate', 'orderingPhysician']

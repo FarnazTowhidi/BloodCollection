@@ -13,9 +13,10 @@ body {
 h1 {
   font-family: "Nanum Gothic", sans-serif;
   font-size: 20px;
-  background-color: #666666;
-  color: #ffffff;
+  background-color: #c5c3c3;
+  color: #2264a3;
   padding: 10px;
+  margin: 0px 0 10px 0;
 }
 
 a {
@@ -62,10 +63,13 @@ nav ul {
 }
 
 .submitButton {
-  width: 80px;
-  height: 20px;
+  width: 130px;
+  height: 25px;
   background-color: #2264a3;
   text-align: center;
+  color:white;
+  border:1px solid white;
+  border-radius: 4;
 }
 
 .submitButton a {

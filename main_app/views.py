@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import BloodSample_Result
 from .models import Patient
+from .models import BloodSamples
+from .models import Medications
+from .models import BloodSampleResult 
 from .forms import PatientBloodSampleForm
 
 class patientUpdate(UpdateView):
@@ -30,10 +32,21 @@ def patients_index(request):
 
 def patients_details(request, patient_id):
     patient = Patient.objects.get(id=patient_id)
+    medication_patient_doesnt_have = Medications.objects.exclude(id__in = patient.medications.all().values_list('id'))
     patientBloodSample_form = PatientBloodSampleForm()
     return render(request, 'patients/detail.html', {
-        'patient': patient, 'patientBloodSample_form': patientBloodSample_form
+        'patient': patient, 'patientBloodSample_form': patientBloodSample_form, 'medications': medication_patient_doesnt_have
     })
+
+
+def bloodSample_add (request, patient_id):
+    form = PatientBloodSampleForm(request.POST)
+    if form.is_valid():
+        new_BloodSamples = form.save(commit=False)
+        new_BloodSamples.patient_id = patient_id
+        new_BloodSamples.save()
+    return redirect('details', patient_id=patient_id)
+
 
 
 def bloodResult_index(request):   
