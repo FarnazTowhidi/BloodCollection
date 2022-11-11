@@ -1,21 +1,28 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from .models import Patient
 from .models import BloodSamples
 from .models import Medications
 from .models import BloodSampleResult 
 from .forms import PatientBloodSampleForm
 
-class patientUpdate(UpdateView):
+class patient_create(CreateView):
+  model = Patient
+  fields = ['name', 'age', 'sex', 'age', 'HealthCareNumber', 'familyDoctor']
+
+
+class patient_update(UpdateView):
     model = Patient
     fields = '__all__'
     patients = Patient.objects.all()
     success_url = "/patients"
 
 
-class patientsDelete(DeleteView):
+class patients_delete(DeleteView):
     model = Patient
     success_url = '/patients/'
+
 
 def home(request):
   return render(request, 'index.html')
@@ -51,6 +58,26 @@ def bloodSample_add (request, patient_id):
 def patient_medication(request, patient_id, medication_id):
   Patient.objects.get(id=patient_id).medications.add(medication_id)
   return redirect('details', patient_id = patient_id)
+
+
+class medication_list(ListView):
+  model = Medications
+
+
+class medication_create(CreateView):
+  model = Medications
+  fields = '__all__'
+
+
+class medication_update(UpdateView):
+  model = Medications
+  fields = ['name', 'startDate', 'endDate', 'amount']
+
+
+class medication_delete(DeleteView):
+  model = Medications
+  success_url = '/medications/'
+
 
 def bloodResult_index(request):   
     bloodSampleResults = BloodSample_Result.objects.all()

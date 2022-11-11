@@ -7,7 +7,6 @@
 
 body {
   background-color: white;
-  height: 100vh;
 }
 
 h1 {
@@ -17,6 +16,19 @@ h1 {
   color: #2264a3;
   padding: 10px;
   margin: 0px 0 10px 0;
+}
+
+h2 {
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 18px;
+  color: #ea4300;
+  margin: 0px 0 10px 0;
+}
+
+p {
+  line-height: 24px;
+  padding: 30px;
+  font-size: 14px;
 }
 
 a {

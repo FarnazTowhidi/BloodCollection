@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Medications(models.Model):
     name = models.CharField(max_length=200)
@@ -6,6 +7,11 @@ class Medications(models.Model):
     endDate = models.DateField()
     amount = models.IntegerField()
 
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('medication_index')
 
 class Patient (models.Model):
     name = models.CharField(max_length = 100)
@@ -15,6 +21,11 @@ class Patient (models.Model):
     familyDoctor = models.CharField(max_length = 100, default="Dr. Martin")
     medications = models.ManyToManyField(Medications)
 
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('details', kwargs={'patient_id': self.id})
 
 class BloodSamples (models.Model):   
     collectionDate = models.DateField()

@@ -3,10 +3,10 @@
 
 <div>
   <div class="list-container">
-    Patient Name: {{ patient.name }} <br />
-    Age: {{ patient.age }} <br />
-    sex: {{ patient.sex }} <br />
-    Family Doctor: {{ patient.family_doctor}} <br />
+    <b>Patient Name:</b> {{ patient.name }} <br />
+    <b>Age:</b> {{ patient.age }} <br />
+    <b>sex:</b> {{ patient.sex }} <br />
+    <b>Family Doctor:</b> {{ patient.family_doctor}} <br />
   </div>
   <div class="button_container">
     <div class="submitButton">
@@ -25,38 +25,29 @@
   </form>
 </div>
 
-<div class="col s6">
-  <table class="striped">
-    <thead>
-      <tr>
-        <th>Collection Date</th>
-        <th>Ordering Physician</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for bloodSample in patient.BloodSamples_set.all %}
-      <tr>
-        <td>{{bloodSample.collectionDate}}</td>
-        <td>{{bloodSample.orderingPhysician}}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<div class="list-container">
+ 
+    {% for sample in patient.bloodsamples_set.all %}   
+        Sample Collection Date: {{sample.collectionDate}} <br>
+        Ordering Physican: {{sample.orderingPhysician}} <br>   
+    {% endfor %}
+   
 </div>
 
 <hr />
-<div class="row">
+<h1>Patient Medications</h1>
+<div class="list-container">
   <div class="col s6">
-    <h1>Patient Medications</h1>
+   
     {% if patient.medications.count %} 
     {%for medication in patient.medications.all%}
     <div class="card">
       <div class="card-content">
         <span class="card-title">
-          Medications: {{medication.name}} <br />
-          Date start: {{medication.startDate}}<br />
-          Date finished: {{medication.endDate}}<br />
-          Dose: {{medication.amount}}<br />
+          <span>Medications:</span> {{medication.name}} <br />
+          <span>Date start:</span> {{medication.startDate}}<br />
+          <span>Date finished:</span> {{medication.endDate}}<br />
+          <span>Dose:</span> {{medication.amount}}<br />
         </span><br>
       </div>
     </div>
@@ -67,7 +58,7 @@
   <!-- Available medications will come after this line -->
 
   <div class="col s6">
-    <h3>Available Medications</h3>
+    <h2>Available Medications</h2>
     {% if medications.count %}
       {% for medication in medications.all %}
         <div class="card">

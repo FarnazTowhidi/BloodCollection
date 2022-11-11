@@ -27,13 +27,19 @@
         <div>
           <ul>
             <li class="navItem">
-              <a class="navLink" href="/about">About NIH</a>
+              <a class="navLink" href="{% url 'about' %}">About NIH</a>
             </li>
             <li class="navItem">
-              <a class="navLink" href="/patients/">Patients List</a>
+              <a class="navLink" href="{% url 'patient_create' %}">Add Patients</a>
             </li>
             <li class="navItem">
-              <a class="navLink" href="/bloodResult/">Patients Blood Result</a>
+              <a class="navLink" href="{% url 'index' %}">View All Patients</a>
+            </li>
+            <li class="navItem">
+              <a class="navLink" href="{% url 'medication_create' %}">Add Medications</a>
+            </li>
+            <li class="navItem">
+              <a class="navLink" href="{% url 'medication_index' %}">View All Medications</a>
             </li>
           </ul>
         </div>
