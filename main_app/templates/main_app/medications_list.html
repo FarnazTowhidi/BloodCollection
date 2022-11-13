@@ -2,14 +2,15 @@
 {% block content %}
 
 <h1>Medication List</h1>
-{% for medication in medication_list %}
-  <a href="{% url 'medication_detail' medication.id %}">
+
+{% for m in medication_list %}
+  <a href="{% url 'medication_detail' m.id %}">
     <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ medication.name }}</span>
-            <span class="card-title">{{ medication.startDate }}</span>
-            <span class="card-title">{{ medication.endDate }}</span>
-            <span class="card-title">{{ medication.amount }}</span>
+            <span class="card-title">{{ m.name }}</span>
+            <span class="card-title">{{ m.startDate }}</span>
+            <span class="card-title">{{ m.endDate }}</span>
+            <span class="card-title">{{ m.amount }}</span>
         </div>
     </div>
   </a>

@@ -1,6 +1,27 @@
 {% extends 'base.html' %} {% block content %}
 <h1>Patient Information</h1>
 
+{% for photo in patient.photo_set.all %}
+    <img
+      class="card-panel teal-text center-align"
+      src="{{ photo.url }}"
+      alt="patient photo"
+      style="max-width: 200px"
+    />
+    {% empty %}
+    <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+    {% endfor %}
+    <form
+      action="{% url 'add_photo' patient.id %}"
+      enctype="multipart/form-data"
+      method="POST"
+      class="card-panel"
+    >
+      {% csrf_token %}
+      <input type="file" name="photo-file" />
+      <br /><br />
+      <input type="submit" value="Upload Photo" />
+    </form>
 <div>
   <div class="list-container">
     <b>Patient Name:</b> {{ patient.name }} <br />
