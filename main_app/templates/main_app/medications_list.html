@@ -3,8 +3,8 @@
 
 <h1>Medication List</h1>
 
-{% for m in medication_list %}
-  <a href="{% url 'medication_detail' m.id %}">
+{% for m in medications_list %}
+  <a href="">
     <div class="card">
         <div class="card-content">
             <span class="card-title">{{ m.name }}</span>
