@@ -12,7 +12,8 @@ class Medications(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('medication_index')
+        return reverse('medications_detail', kwargs={'pk': self.id})
+        
 
 class Patient (models.Model):
     name = models.CharField(max_length = 100)

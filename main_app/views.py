@@ -100,9 +100,9 @@ def bloodSample_add (request, patient_id):
     return redirect('details', patient_id=patient_id)
 
 
-def patient_medication(request, patient_id, medication_id):
-  Patient.objects.get(id=patient_id).medications.add(medication_id)
-  return redirect('details', patient_id = patient_id)
+def patient_medication(request,  medication_id):
+  medications = Medications.objects.get(id=medication_id)
+  return render(request, 'main_app/medications_detail.html', {'medication':medications})
 
 
 class medicationList(ListView):
